@@ -1,6 +1,6 @@
-# Advent of Code 2022 (but like, ✨pretty✨)
+# [Advent of Code 2022](https://adventofcode.com/2022/) (but like, ✨pretty✨)
 
-My AoC solutions...
+My AoC solutions...in Rust
 
 Currently WIP.
 
@@ -22,10 +22,33 @@ for &(id, cal) in table.iter().take(3) {
     println!("Elf #{} with {} calories.", id, cal);
     sum += cal;
 }
-
-println!("\nSum of top three calories: {}", sum);
 ```
 
 While getting the elf IDs themselves wasn't necessary (just the sum was, a simple `take(3).sum()` would have sufficed), I did it because nice user-facing output makes a good application.
 
+```text
+Elf #65 with 70698 calories.
+Elf #199 with 69773 calories.
+Elf #18 with 66172 calories.
+```
+
 Actually, no, I just want an excuse to not go for the leaderboards haha 😂.
+
+## Running the code
+
+I made a little interface to make running it easier ([install the Rust toolchain](https://rustup.rs) if you haven't)
+
+```text
+$ git clone https://github.com/poopsicles/Advent2022.git && cd Advent2022
+
+$ cargo run
+
+<All>   <#1>
+
+What day? 1     
+Elf #65 with 70698 calories.
+Elf #199 with 69773 calories.
+Elf #18 with 66172 calories.
+
+Sum of top three calories: 206643
+```

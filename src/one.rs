@@ -1,3 +1,6 @@
+// Day 1: Calorie Counting
+// https://adventofcode.com/2022/day/1
+
 use std::{fs::File, io::Read};
 
 pub fn one(filename: &str) {
@@ -25,8 +28,15 @@ pub fn one(filename: &str) {
         }
     }
 
-    calories.sort();
-    calories.reverse();
+    let mut table = calories.iter().enumerate().collect::<Vec<(_, _)>>();
+    table.sort_unstable_by_key(|&(_, cal)| cal);
+    table.reverse();
 
-    println!("{}", calories.iter().take(3).sum::<u32>())
+    let mut sum = 0;
+    for item in table.iter().take(3) {
+        println!("Elf #{} with {} calories.", item.0, item.1);
+        sum += item.1;
+    }
+
+    println!("\nSum of top three calories: {}", sum);
 }

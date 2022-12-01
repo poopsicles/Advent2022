@@ -1,5 +1,5 @@
-mod one;
+mod solutions;
 
 fn main() {
-    one::one("inputs\\one.txt");
+    solutions::one::solve("inputs\\one.txt");
 }

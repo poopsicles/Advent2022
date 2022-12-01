@@ -51,4 +51,4 @@ pub fn solve(filename: &str) {
 // Elf #199 with 69773 calories.
 // Elf #18 with 66172 calories.
 
-// Sum of top three calories: 206643
+// Sum of top three elves: 206643

@@ -1,6 +1,11 @@
 // Day 1: Calorie Counting
 // https://adventofcode.com/2022/day/1
 
+// Iterate through the file, adding the numbers to
+// the previous entry in a list and going to the next element
+// when a blank line is encountered, then sort in descending order
+// and get the first, and sum the first 3
+
 use std::{fs::File, io::Read};
 
 pub fn solve(filename: &str) {

@@ -12,16 +12,16 @@ pub fn solve(filename: &str) {
     let mut current_elf = false; // tracks whether to add to the current elf or make a new entry
 
     for line in contents.lines() {
-        if line == "" {
-            current_elf = false;
-            continue;
-        }
-
-        let line_parse = line.parse::<u32>().unwrap();
+        let line_parse = match line.parse::<u32>() {
+            Ok(x) => x,
+            Err(_) => {
+                current_elf = false;
+                continue;
+            }
+        };
 
         if current_elf {
-            let current_cal = calories.pop().unwrap();
-            calories.push(current_cal + line_parse);
+            *calories.last_mut().unwrap() += line_parse
         } else {
             calories.push(line_parse);
             current_elf = true
@@ -33,9 +33,9 @@ pub fn solve(filename: &str) {
     table.reverse();
 
     let mut sum = 0;
-    for item in table.iter().take(3) {
-        println!("Elf #{} with {} calories.", item.0, item.1); // Part 1
-        sum += item.1;
+    for &(id, cal) in table.iter().take(3) {
+        println!("Elf #{} with {} calories.", id, cal); // Part 1
+        sum += cal;
     }
 
     println!("\nSum of top three calories: {}", sum); // Part 2

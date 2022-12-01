@@ -6,10 +6,10 @@ use std::{fs::File, io::Read};
 pub fn solve(filename: &str) {
     let mut file = File::open(filename).unwrap();
     let mut contents = String::new();
-    let mut calories = Vec::from([0u32]);
+    let mut calories = Vec::from([0u32]); // offset so we can use indices as elf IDs
 
     file.read_to_string(&mut contents).unwrap();
-    let mut current_elf = false;
+    let mut current_elf = false; // tracks whether to add to the current elf or make a new entry
 
     for line in contents.lines() {
         if line == "" {

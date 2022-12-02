@@ -20,6 +20,8 @@ use std::{fs::File, io::Read};
 // probably provide more information for the complier
 // than fiddling with ASCII values and looking up win-values
 // in an array (my original solution)
+// 
+// Edit: Nope, just checked the Rust subreddit and I feel ashamed.
 
 pub fn solve(filename: &str) {
     let mut file = File::open(filename).unwrap();

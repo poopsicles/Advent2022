@@ -41,8 +41,8 @@ I made a little interface to make running it easier ([install the Rust toolchain
 ```text
 $ git clone https://github.com/poopsicles/Advent2022.git && cd Advent2022
 
-$ cargo run
-<All>   <#1>    <#2>
+$ cargo run --release
+<All>   <#1>    <#2>    <#3>
 
 What day? (all/q/#): all
 
@@ -54,5 +54,6 @@ Elf #18 with 66172 calories.
 Sum of top three calories: 206643
 
 ----- Day #2 -----
-(continued)
+~snip~
+...Completed in 58393μs
 ```

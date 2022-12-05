@@ -9,7 +9,8 @@
 // it is contained in it and vice-versa
 //
 // For Part 2:
-// if c in a..b or a in c..d, it partially overlaps
+// if c in a..b (c is greater than/equal to a and less than/equal to b)
+// and vice-versa, there's an overlap
 
 use std::{fs::File, io::Read};
 

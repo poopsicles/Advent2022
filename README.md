@@ -55,5 +55,5 @@ Sum of top three calories: 206643
 
 ----- Day #2 -----
 ~snip~
-...Completed in 58393μs
+...Completed in 583ms
 ```

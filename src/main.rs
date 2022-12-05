@@ -4,7 +4,7 @@ use std::io::{self, Write};
 use std::time::Instant;
 
 fn main() {
-    println!("<All>\t<#1>\t<#2>\t<#3>\n");
+    println!("<All>\t<#1>\t<#2>\t<#3>\t<#4>\n");
     print!("What day? (all/q/#): ");
     io::stdout().flush().unwrap();
 
@@ -26,27 +26,36 @@ fn main() {
             println!("\n----- Day #3 -----");
             solutions::three::solve("inputs\\three.txt");
 
-            let done = start.elapsed().as_micros();
-            println!("\n...Completed in {}μs", done);
+            println!("\n----- Day #4 -----");
+            solutions::four::solve("inputs\\four.txt");
+
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
         }
 
         "1" => {
             let start = Instant::now();
             solutions::one::solve("inputs\\one.txt");
-            let done = start.elapsed().as_micros();
-            println!("\n...Completed in {}μs", done);
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
         }
         "2" => {
             let start = Instant::now();
             solutions::two::solve("inputs\\two.txt");
-            let done = start.elapsed().as_micros();
-            println!("\n...Completed in {}μs", done);
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
         }
         "3" => {
             let start = Instant::now();
             solutions::three::solve("inputs\\three.txt");
-            let done = start.elapsed().as_micros();
-            println!("\n...Completed in {}μs", done);
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
+        }
+        "4" => {
+            let start = Instant::now();
+            solutions::four::solve("inputs\\four.txt");
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
         }
 
         _ => println!("Invalid, oops!"),

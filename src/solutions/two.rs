@@ -23,6 +23,13 @@ use std::{fs::File, io::Read};
 // 
 // Edit: Nope, just checked the Rust subreddit and I feel ashamed.
 
+// Output:
+// Using the guessed decryption, you scored 40 points!
+// 4 won, 2 lost, and 1 drew.
+//
+// Using the correct decryption, you scored 25 points!
+// 1 won, 2 lost, and 4 drew.
+
 pub fn solve(filename: &str) {
     let mut file = File::open(filename).unwrap();
     let mut contents = String::new();
@@ -130,10 +137,3 @@ pub fn solve(filename: &str) {
         stats_two.0, stats_two.1, stats_two.2
     );
 }
-
-// Output:
-// Using the guessed decryption, you scored 40 points!
-// 4 won, 2 lost, and 1 drew.
-//
-// Using the correct decryption, you scored 25 points!
-// 1 won, 2 lost, and 4 drew.

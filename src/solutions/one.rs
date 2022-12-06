@@ -6,6 +6,13 @@
 // when a blank line is encountered, then sort in descending order
 // and get the first, and sum the first 3
 
+// Output:
+// Elf #65 with 70698 calories.
+// Elf #199 with 69773 calories.
+// Elf #18 with 66172 calories.
+
+// Sum of top three elves: 206643
+
 use std::{fs::File, io::Read};
 
 pub fn solve(filename: &str) {
@@ -45,10 +52,3 @@ pub fn solve(filename: &str) {
 
     println!("\nSum of top three calories: {}", sum); // Part 2
 }
-
-// Output:
-// Elf #65 with 70698 calories.
-// Elf #199 with 69773 calories.
-// Elf #18 with 66172 calories.
-
-// Sum of top three elves: 206643

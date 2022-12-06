@@ -8,6 +8,10 @@
 // For Part 2, make the set for every three lines, then find
 // their intersection.
 
+// Output:
+// The priorites of the items that need to be rearranged is 8243 in total.
+// The priorites of the badge items is 2631 in total.
+
 use std::{collections::HashSet, fs::File, io::Read};
 
 pub fn solve(filename: &str) {

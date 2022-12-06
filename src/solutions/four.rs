@@ -12,6 +12,10 @@
 // if c in a..b (c is greater than/equal to a and less than/equal to b)
 // and vice-versa, there's an overlap
 
+// Output:
+// There are 644 assignment pairs in which one fully contains the other.
+// There are 926 assignment pairs in which the assignments overlap.
+
 use std::{fs::File, io::Read};
 
 pub fn solve(filename: &str) {
@@ -40,5 +44,5 @@ pub fn solve(filename: &str) {
         });
         
     println!("There are {} assignment pairs in which one fully contains the other.", total_overlap);
-    println!("There are {} assignment pairs in which the assignments overlap", partial_overlap);
+    println!("There are {} assignment pairs in which the assignments overlap.", partial_overlap);
 }

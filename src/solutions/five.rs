@@ -2,7 +2,50 @@
 // https://adventofcode.com/2022/day/5
 
 // Parse the stacks into lists, then push and
-// pop as needed
+// pop as needed (put crates in a buffer for Part 2)
+
+// Output:
+// The visualisation for CraneMover 9000 is:
+//
+// [J]                             [J]
+// [V]                             [P]
+// [R]                             [D]
+// [R]                             [D]
+// [L]                             [B]
+// [H]                             [C]
+// [S]                             [L]
+// [P]                             [Z]
+// [D]                             [J]
+// [B]                             [V]
+// [V] [D]                         [B]
+// [V] [Q] [T]                     [R]
+// [G] [H] [Z]                     [F]
+// [Z] [P] [N]     [R]             [W]
+// [V] [Q] [N]     [P]             [C]
+// [R] [L] [V]     [G]     [C]     [J]
+// [D] [H] [F] [M] [M] [W] [L] [Q] [W]
+//  1   2   3   4   5   6   7   8   9
+//
+// The visualisation for CraneMover 9001 is:
+//
+// [V]                             [D]
+// [Q]                             [P]
+// [R]                             [J]
+// [Z]                             [S]
+// [Z]                             [W]
+// [R]                             [J]
+// [P]                             [L]
+// [V]                             [G]
+// [V]                             [C]
+// [M]                             [M]
+// [D] [H]                         [W]
+// [G] [H] [J]                     [L]
+// [Q] [V] [F]                     [V]
+// [Z] [P] [F]     [D]             [B]
+// [L] [N] [C]     [R]             [Q]
+// [R] [B] [D]     [B]     [W]     [H]
+// [L] [V] [N] [D] [J] [C] [P] [R] [T]
+//  1   2   3   4   5   6   7   8   9
 
 use std::{collections::VecDeque, fs::File, io::Read};
 
@@ -63,7 +106,7 @@ pub fn solve(filename: &str) {
             }
         });
 
-    // Part 1
+    // Print Part 1
     let max_height_one = stacks_one.iter().map(|x| x.len()).max().unwrap();
     let mut visual_one = String::from(" ");
 
@@ -82,6 +125,7 @@ pub fn solve(filename: &str) {
         }
     }
 
+    // Print Part 2
     let max_height_two = stacks_two.iter().map(|x| x.len()).max().unwrap();
     let mut visual_two = String::from(" ");
 
@@ -106,46 +150,3 @@ pub fn solve(filename: &str) {
     println!("The visualisation for CraneMover 9001 is:\n");
     println!("{}", visual_two);
 }
-
-// Output:
-// The visualisation for CraneMover 9000 is:
-//
-// [J]                             [J]
-// [V]                             [P]
-// [R]                             [D]
-// [R]                             [D]
-// [L]                             [B]
-// [H]                             [C]
-// [S]                             [L]
-// [P]                             [Z]
-// [D]                             [J]
-// [B]                             [V]
-// [V] [D]                         [B]
-// [V] [Q] [T]                     [R]
-// [G] [H] [Z]                     [F]
-// [Z] [P] [N]     [R]             [W]
-// [V] [Q] [N]     [P]             [C]
-// [R] [L] [V]     [G]     [C]     [J]
-// [D] [H] [F] [M] [M] [W] [L] [Q] [W]
-//  1   2   3   4   5   6   7   8   9
-//
-// The visualisation for CraneMover 9001 is:
-//
-// [V]                             [D]
-// [Q]                             [P]
-// [R]                             [J]
-// [Z]                             [S]
-// [Z]                             [W]
-// [R]                             [J]
-// [P]                             [L]
-// [V]                             [G]
-// [V]                             [C]
-// [M]                             [M]
-// [D] [H]                         [W]
-// [G] [H] [J]                     [L]
-// [Q] [V] [F]                     [V]
-// [Z] [P] [F]     [D]             [B]
-// [L] [N] [C]     [R]             [Q]
-// [R] [B] [D]     [B]     [W]     [H]
-// [L] [V] [N] [D] [J] [C] [P] [R] [T]
-//  1   2   3   4   5   6   7   8   9

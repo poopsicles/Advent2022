@@ -4,7 +4,7 @@ use std::io::{self, Write};
 use std::time::Instant;
 
 fn main() {
-    println!("<All>\t<#1>\t<#2>\t<#3>\t<#4>\n");
+    println!("<All>\n\n<#1>\t<#2>\t<#3>\t<#4>\t<#5>\n");
     print!("What day? (all/q/#): ");
     io::stdout().flush().unwrap();
 
@@ -28,6 +28,9 @@ fn main() {
 
             println!("\n----- Day #4 -----");
             solutions::four::solve("inputs\\four.txt");
+
+            println!("\n----- Day #5 -----");
+            solutions::five::solve("inputs\\five.txt");
 
             let done = start.elapsed().as_millis();
             println!("\n...Completed in {}ms", done);
@@ -54,6 +57,12 @@ fn main() {
         "4" => {
             let start = Instant::now();
             solutions::four::solve("inputs\\four.txt");
+            let done = start.elapsed().as_millis();
+            println!("\n...Completed in {}ms", done);
+        }
+        "5" => {
+            let start = Instant::now();
+            solutions::five::solve("inputs\\five.txt");
             let done = start.elapsed().as_millis();
             println!("\n...Completed in {}ms", done);
         }

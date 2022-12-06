@@ -28,10 +28,12 @@ pub fn solve(filename: &str) {
         .collect::<Vec<_>>()
         .chunks_exact(4)
         .for_each(|x| {
+            // Part 1
             if x[0] <= x[2] && x[1] >= x[3] || x[2] <= x[0] && x[3] >= x[1] {
                 total_overlap += 1;
             }
 
+            // Part 2
             if x[2] >= x[0] && x[2] <= x[1] || x[0] >= x[2] && x[0] <= x[3] {
                 partial_overlap += 1;
             }

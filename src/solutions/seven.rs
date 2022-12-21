@@ -13,21 +13,24 @@
 
 // Output:
 // / (42586708)
-// |  jztrccm.hvd (293559)
-// |- bfqzjjct (30469934)
-//    |  lzrgqrgc (12679)
-//    |  phslrcw.ljl (240839)
-//      |- sgcg (1479335)
-//          |  jdqz.bqd (111567)
-//          |  jztrccm.hvd (33253)
+// │  jztrccm.hvd (293559)
+// ├─ bfqzjjct (30469934)
+// │   │  lzrgqrgc (12679)
+// │   │  phslrcw.ljl (240839)
+// │   │  vntqgq.tps (169962)
+// │   │  vzq.qvv (114950)
 //
 // (a few...hundred lines)
 //
-//    |- mwnmjjj (252881)
-//       |  mzwmp.jbw (184865)
-//       |  thbh.nbg (68016)
-// |- mqvn (287623)
-//    |  spfzctll (287623)
+// │   │   │   │   │   │  jztrccm.hvd (269270)
+// │   │   │   │   │   └─ lzrgqrgc.ddj (89807)
+// │   │   │   │   ├─ phslrcw (785886)
+// │   │   │   │   │   │  cgcqpjpn.zfz (124727)
+// │   ├─ mwnmjjj (252881)
+// │   │   │  mzwmp.jbw (184865)
+// │   │   └─ thbh.nbg (68016)
+// ├─ mqvn (287623)
+// │   └─ spfzctll (287623)
 //
 // The sum of the folders of total size at most 100000 is 1453349.
 // The smallest folder needed to be deleted has a size of 2948823.
@@ -93,15 +96,26 @@ impl ElfFolder {
 
         res += &format!("{} ({})\n", self.name, self.get_size());
 
-        for file in self.files.iter() {
-            res += &format!("{}│  {} ({})\n", indent, file.name, file.size);
+        if self.folders.is_empty() { // terminate the last file 
+            let last = self.files.last().unwrap();
+
+            for file in self.files.iter().rev().skip(1).rev() {
+                res += &format!("{}│  {} ({})\n", indent, file.name, file.size);
+            }
+
+            res += &format!("{}└─ {} ({})\n", indent, last.name, last.size);
+        } else {
+            for file in self.files.iter() {
+                res += &format!("{}│  {} ({})\n", indent, file.name, file.size);
+            }
         }
+
 
         for folder in self.folders.iter() {
             res += &format!(
-                "{}└─ {}",
+                "{}├─ {}",
                 indent,
-                folder.borrow().pretty(format!("{}   ", indent))
+                folder.borrow().pretty(format!("{}│   ", indent))
             );
         }
 

@@ -31,7 +31,14 @@ use std::{fs::File, io::Read};
 // 1 won, 2 lost, and 4 drew.
 
 pub fn solve(filename: &str) {
-    let mut file = File::open(filename).unwrap();
+    let mut file = match File::open(filename) {
+        Ok(x) => x,
+        Err(_) => {
+            eprintln!("Error: does `{}` exist?", filename);
+            return;
+        }
+    };
+    
     let mut contents = String::new();
     let mut opp = ' ';
 

@@ -50,13 +50,20 @@
 use std::{collections::VecDeque, fs::File, io::Read};
 
 pub fn solve(filename: &str) {
-    let mut file = File::open(filename).unwrap();
+    let mut file = match File::open(filename) {
+        Ok(x) => x,
+        Err(_) => {
+            eprintln!("Error: does `{}` exist?", filename);
+            return;
+        }
+    };
+    
     let mut contents = String::new();
 
     file.read_to_string(&mut contents).unwrap();
 
     // get number of stacks
-    let stack_num = (contents.bytes().take_while(|&x| x != 10).count() + 1) / 4;
+    let stack_num = (contents.bytes().take_while(|&x| x != 0x0A).count() + 1) / 4;
     let mut stacks_one: Vec<VecDeque<char>> = Vec::with_capacity(stack_num);
 
     for _ in 0..stack_num {

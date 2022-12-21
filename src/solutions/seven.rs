@@ -94,12 +94,12 @@ impl ElfFolder {
         res += &format!("{} ({})\n", self.name, self.get_size());
 
         for file in self.files.iter() {
-            res += &format!("{}|  {} ({})\n", indent, file.name, file.size);
+            res += &format!("{}│  {} ({})\n", indent, file.name, file.size);
         }
 
         for folder in self.folders.iter() {
             res += &format!(
-                "{}|- {}",
+                "{}└─ {}",
                 indent,
                 folder.borrow().pretty(format!("{}   ", indent))
             );
